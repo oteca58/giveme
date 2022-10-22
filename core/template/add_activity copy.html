@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>Give Me Activity</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" type="text/css" href="css/add_activity.css" />
+
+    <meta name="robots" content="noindex, follow" />
+  </head>
+  <body>
+    <div class="form_class" id="form" method="post">
+      <div class="title">Add Activity</div>
+      <div class="subtitle">Let's create your activity!</div>
+      <div class="input-container ic1">
+        <input id="description" class="input" type="text" placeholder=" " />
+        <div class="cut"></div>
+        <label for="firstname" class="placeholder">Description</label>
+      </div>
+      <!-- <div class="input-container ic2">
+        <input id="client_code" class="input" type="text" placeholder=" " />
+        <div class="cut"></div>
+        <label for="lastname" class="placeholder">Client Code</label>
+      </div>
+      <div class="input-container ic2">
+        <input id="due_date" class="input" type="text" placeholder=" " />
+        <div class="cut cut-short"></div>
+        <label for="email" class="placeholder">Due Date</label>
+      </div>
+      <div class="input-container ic2">
+        <input id="assignment" class="input" type="text" placeholder=" " />
+        <div class="cut cut-short"></div>
+        <label for="email" class="placeholder">Assignment</label>
+      </div>
+      <div class="input-container ic2">
+        <input id="status" class="input" type="text" placeholder=" " />
+        <div class="cut cut-short"></div>
+        <label for="email" class="placeholder">Status</label>
+      </div>
+      <div class="input-container ic2">
+        <input id="effort" class="input" type="text" placeholder=" " />
+        <div class="cut cut-short"></div>
+        <label for="email" class="placeholder">Effort</label>
+      </div>
+      <div class="input-container ic2">
+        <input id="billable_to" class="input" type="text" placeholder=" " />
+        <div class="cut cut-short"></div>
+        <label for="email" class="placeholder">Billable To</label>
+      </div>
+      <div class="input-container ic2">
+        <input id="invoiced" class="input" type="text" placeholder=" " />
+        <div class="cut cut-short"></div>
+        <label for="email" class="placeholder">Invoiced</label>
+      </div> -->
+      <button type="submit" class="submit">submit</button>
+    </div>
+
+    <!-- <script src="js/jquery-3.2.1.min.js"></script>
+
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/select2.min.js"></script>
+
+    <script src="js/main.js"></script>
+    <script async="" src="js/js"></script> -->
+    <!-- <script src="add_activity_controller.js"></script> -->
+    <script>
+      var form = document.getElementById("form");
+
+      console.log(form);
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var description = document.getElementById("description").value;
+        console.log(description);
+        fetch("http://127.0.0.1:8000/api/v1/activities/create/", {
+          method: "POST",
+          body: {
+            description: "description",
+          },
+          headers: {
+            "Content-type": "application/json; charset:UTF-8",
+          },
+        })
+          .then(function (response) {
+            response.json();
+          })
+          .then(function (data) {
+            console.log(data);
+          });
+      });
+    </script>
+  </body>
+</html>
